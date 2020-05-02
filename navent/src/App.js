@@ -7,19 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <h1>gonn</h1>
+        </Grid>
+        <Grid item xs={8}>
+          <h1>Capooo</h1>
+        </Grid>
+      </Grid>
     </div>
   );
 }
