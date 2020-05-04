@@ -2,7 +2,7 @@ import {
   DATA_GET_FULFILLED,
   UPDATE_FAVORITES,
   UPDATE_FILTERED_APARTS,
-  UPDATE_FITLERS,
+  UPDATE_FILTERS,
 } from "../constants/constants";
 
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
   favorites: [],
 };
 
-const deptos = (state = initialState, action) => {
+const aparts = (state = initialState, action) => {
   switch (action.type) {
     case DATA_GET_FULFILLED: {
       return {
@@ -30,7 +30,7 @@ const deptos = (state = initialState, action) => {
       };
     }
 
-    case UPDATE_FITLERS: {
+    case UPDATE_FILTERS: {
       return {
         ...state,
         filters: {
@@ -63,4 +63,4 @@ const deptos = (state = initialState, action) => {
   }
 };
 
-export default deptos;
+export default aparts;

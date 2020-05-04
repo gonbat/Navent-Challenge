@@ -1,5 +1,5 @@
 import axios from "axios";
-const data = {
+const Data = {
   getData() {
     return axios
       .get("navent.json")
@@ -16,4 +16,4 @@ const data = {
   },
 };
 
-export default data;
+export default Data;

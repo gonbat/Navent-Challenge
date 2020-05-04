@@ -37,3 +37,284 @@
     transform: rotate(360deg);
   }
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.App {
+  float: left;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.general-container {
+  height: 100vh;
+  margin: 0 auto;
+  width: 875px;
+  display: block;
+  padding-top: 40px;
+}
+
+.MuiCardContent-root.item-list {
+  float: left;
+  width: 100%;
+  display: flex;
+  padding: 0px;
+  padding-bottom: 0px;
+}
+
+.container-img-carousel {
+  float: left;
+  width: 35%;
+  position: relative;
+}
+
+.heart-liked {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.container-info {
+  float: left;
+  width: 65%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.general-container .MuiCardContent-root.item-list {
+  padding-bottom: 0px;
+}
+
+.arrow-slider {
+  color: white;
+  font-size: 24px;
+}
+
+.title-item {
+  color: #569ce2;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.heart-liked {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.ubication-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 5px;
+}
+
+.ubication-title p {
+  margin: 0px 0px 0px 10px;
+}
+
+.ubication-title * {
+  color: #999999;
+  font-size: 14px;
+}
+
+.heart-liked {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.ubication-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 5px;
+}
+
+.ubication-title p {
+  margin: 0px 0px 0px 10px;
+  /* font-size: 14px; */
+}
+
+.ubication-title * {
+  color: #999999;
+  font-size: 14px;
+}
+
+.MuiCardActions-root.footer-item {
+  float: left;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  background: #eaeaea;
+  margin-bottom: -20px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.MuiCardActions-root.footer-item .amenities-content ul {
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
+}
+
+.MuiCardActions-root.footer-item .amenities-content ul li {
+  list-style: none;
+  font-family: "Roboto";
+  font-size: 12px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.footer-item button {
+  color: #569ce2;
+  font-size: 14px;
+}
+
+.ubication-title + .description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #4d4d4d;
+}
+
+.price-info {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.price-info > p.MuiTypography-root.price {
+  font-size: 26px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.price-info > .sub-price {
+  font-size: 14px;
+  font-style: italic;
+  color: #569ce2;
+  font-weight: 500;
+}
+
+.container-info .title-item {
+  color: #569ce2;
+  font-size: 20px;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 875px) {
+  .general-container {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .general-container > div {
+    max-width: 414px;
+    float: left;
+    width: 100%;
+  }
+
+  .general-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    height: auto;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .item-list {
+    flex-direction: column;
+  }
+
+  .item-list .container-img-carousel {
+    width: 100%;
+    height: 300px;
+  }
+
+  .container-info {
+    width: 100%;
+    z-index: 2;
+    position: relative;
+  }
+  .MuiCardActions-root.footer-item {
+    background: none;
+    justify-content: flex-end;
+  }
+
+  .price-info {
+    position: absolute;
+    top: -70px;
+    display: block;
+  }
+
+  .container-info .price-info > p {
+    color: white;
+  }
+
+  .price-info > p.MuiTypography-root.price {
+    width: 100%;
+  }
+  .price-info {
+    position: absolute;
+    top: -70px;
+    display: block;
+  }
+
+  .container-info .price-info > p {
+    color: white;
+    font-size: 12px;
+  }
+
+  .price-info > p.MuiTypography-root.price {
+    width: 100%;
+  }
+
+  .amenities-content {
+    position: absolute;
+    top: -30px;
+    right: 0;
+  }
+
+  .amenities-content ul li {
+    font-size: 12px !important;
+    font-style: italic;
+    color: white;
+    font-weight: 500;
+  }
+
+  .container-info .title-item {
+    white-space: normal;
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
