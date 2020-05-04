@@ -1,10 +1,11 @@
+import axios from "axios";
 const data = {
   getData() {
     return axios
       .get("navent.json")
       .then((res) => {
         try {
-          return res.data.json();
+          return res.data;
         } catch (e) {
           return e;
         }
@@ -14,3 +15,5 @@ const data = {
       });
   },
 };
+
+export default data;
