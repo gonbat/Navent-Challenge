@@ -1,9 +1,9 @@
 import {
-  POSTS_FETCH_FULFILLED,
-  UPDATE_FILTERED_POSTS,
+  DATA_GET_FULFILLED,
   UPDATE_FAVORITES,
-} from "../Actions/Types/posts";
-import { UPDATE_FITLERS } from "../Actions/Types/search";
+  UPDATE_FILTERED_APARTS,
+  UPDATE_FITLERS,
+} from "../constants/constants";
 
 const initialState = {
   data: {
@@ -18,14 +18,14 @@ const initialState = {
   favorites: [],
 };
 
-const posts = (state = initialState, action) => {
+const deptos = (state = initialState, action) => {
   switch (action.type) {
-    case POSTS_FETCH_FULFILLED: {
+    case DATA_GET_FULFILLED: {
       return {
         ...state,
-        postings: {
-          ...state.postings,
-          posts: action.payload,
+        data: {
+          ...state.data,
+          aparts: action.payload,
         },
       };
     }
@@ -42,11 +42,11 @@ const posts = (state = initialState, action) => {
       };
     }
 
-    case UPDATE_FILTERED_POSTS: {
+    case UPDATE_FILTERED_APARTS: {
       return {
         ...state,
-        postings: {
-          ...state.postings,
+        data: {
+          ...state.data,
           filteredPosts: action.payload,
         },
       };
@@ -63,4 +63,4 @@ const posts = (state = initialState, action) => {
   }
 };
 
-export default posts;
+export default deptos;
