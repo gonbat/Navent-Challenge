@@ -7,8 +7,11 @@ import {
   CardContent,
   Button,
   Typography,
+  IconButton,
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+
 import RestoreIcon from "@material-ui/icons/Restore";
 
 import descarga from "../../descarga.jpeg";
@@ -53,13 +56,16 @@ const ResultCard = () => {
       <CardContent className='item-list'>
         <div className='container-img-carousel'>
           <div className='heart-liked'>
-            <FavoriteIcon></FavoriteIcon>
+            <IconButton style={{ backgroundColor: "#ccc" }}>
+              {/* <FavoriteIcon style={{ fill: "red" }} /> */}
+              <FavoriteBorderIcon style={{ fill: "black" }} />
+            </IconButton>
           </div>
           <div className='destacado'>
             <p>super-destacado</p>
           </div>
           <img className='gil' src={descarga} alt='' />
-          <div>
+          <div classname='border'>
             <h1>$21.000</h1>
             <p>comisiones</p>
           </div>
@@ -87,10 +93,11 @@ const ResultCard = () => {
           </Typography>
 
           <CardActions className='footer-item'>
+            <RestoreIcon />
+            <h4>Publicado hace 12 dias</h4>
             <Button className='button' size='small'>
               CONTACTAR
             </Button>
-            <RestoreIcon style={{ padding: "2px 4px 0 0" }} />
           </CardActions>
         </div>
       </CardContent>

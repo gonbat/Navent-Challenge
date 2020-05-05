@@ -24,6 +24,8 @@ function App() {
           </Grid>
           <Grid item xs={9}>
             <ResultCard />
+            <ResultCard />
+            <ResultCard />
           </Grid>
         </Grid>
       </div>
