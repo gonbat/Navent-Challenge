@@ -1,5 +1,6 @@
 .App {
   margin: 18px;
+
   padding: 3px;
 }
 
@@ -12,17 +13,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -71,12 +61,18 @@ input[type="number"] {
   display: flex;
   padding: 0px;
   padding-bottom: 0px;
+  height: 20%;
 }
 
 .container-img-carousel {
   float: left;
-  width: 35%;
+  width: 30%;
   position: relative;
+}
+.gon {
+  font-size: 2em;
+  position: absolute;
+  padding-top: 175px;
 }
 
 .heart-liked {
@@ -93,10 +89,8 @@ input[type="number"] {
   width: 65%;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.general-container .MuiCardContent-root.item-list {
-  padding-bottom: 0px;
+  height: 380px;
+  margin-bottom: -100px;
 }
 
 .arrow-slider {
@@ -157,69 +151,24 @@ input[type="number"] {
 }
 
 .ubication-title * {
-  color: #999999;
   font-size: 14px;
-}
-
-.MuiCardActions-root.footer-item {
-  float: left;
-  width: calc(100% + 40px);
-  margin-left: -20px;
-  background: #eaeaea;
-  margin-bottom: -20px;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.MuiCardActions-root.footer-item .amenities-content ul {
-  padding-left: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  display: flex;
-}
-
-.MuiCardActions-root.footer-item .amenities-content ul li {
-  list-style: none;
-  font-family: "Roboto";
-  font-size: 12px;
-  margin-right: 10px;
-  font-weight: 600;
 }
 
 .footer-item button {
-  color: #569ce2;
-  font-size: 14px;
+  width: 25%;
+  color: white;
+  background-color: orange;
+  left: 280px;
+  bottom: -10px;
 }
 
-.ubication-title + .description {
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #4d4d4d;
-}
-
-.price-info {
-  float: left;
+.description {
   width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  padding-top: 8px;
+  overflow-y: scroll;
+  height: 37%;
+  font-size: 10px;
 }
-
-.price-info > p.MuiTypography-root.price {
-  font-size: 26px;
-  font-weight: 600;
-  margin-right: 10px;
-}
-
-.price-info > .sub-price {
-  font-size: 14px;
-  font-style: italic;
-  color: #569ce2;
-  font-weight: 500;
-}
-
 .container-info .title-item {
   color: #569ce2;
   font-size: 20px;
@@ -245,76 +194,5 @@ input[type="number"] {
     justify-content: center;
     padding-bottom: 40px;
     height: auto;
-  }
-
-  .modal-content {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  .item-list {
-    flex-direction: column;
-  }
-
-  .item-list .container-img-carousel {
-    width: 100%;
-    height: 300px;
-  }
-
-  .container-info {
-    width: 100%;
-    z-index: 2;
-    position: relative;
-  }
-  .MuiCardActions-root.footer-item {
-    background: none;
-    justify-content: flex-end;
-  }
-
-  .price-info {
-    position: absolute;
-    top: -70px;
-    display: block;
-  }
-
-  .container-info .price-info > p {
-    color: white;
-  }
-
-  .price-info > p.MuiTypography-root.price {
-    width: 100%;
-  }
-  .price-info {
-    position: absolute;
-    top: -70px;
-    display: block;
-  }
-
-  .container-info .price-info > p {
-    color: white;
-    font-size: 12px;
-  }
-
-  .price-info > p.MuiTypography-root.price {
-    width: 100%;
-  }
-
-  .amenities-content {
-    position: absolute;
-    top: -30px;
-    right: 0;
-  }
-
-  .amenities-content ul li {
-    font-size: 12px !important;
-    font-style: italic;
-    color: white;
-    font-weight: 500;
-  }
-
-  .container-info .title-item {
-    white-space: normal;
-    line-height: 24px;
-    font-size: 16px;
   }
 }

@@ -16,15 +16,17 @@ function App() {
   }, [dispatch]);
   const publication = useSelector((state) => state.aparts.data.aparts);
   return (
-    <div className='App'>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <h1>gonn</h1>
+    <div className='general-container'>
+      <div className='App'>
+        <Grid container spacing={1}>
+          <Grid item xs={3}>
+            <h1>gonn</h1>
+          </Grid>
+          <Grid item xs={9}>
+            <ResultCard />
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          <ResultCard />
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 }

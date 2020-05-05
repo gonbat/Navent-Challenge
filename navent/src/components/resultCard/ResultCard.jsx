@@ -7,9 +7,11 @@ import {
   CardContent,
   Button,
   Typography,
-  Input,
-  BorderTop,
 } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import RestoreIcon from "@material-ui/icons/Restore";
+
+import descarga from "../../descarga.jpeg";
 var moment = require("moment");
 const ResultCard = () => {
   // let result = props.result;
@@ -21,9 +23,48 @@ const ResultCard = () => {
     let days = now.diff(pDay, "days");
     return `Publicado hace ${days} dias`;
   };
+
+  const getDestacado = () => {
+    switch ("r") {
+      case "HIGHLIGHTED":
+        return "Destacado";
+      case "SUPERHIGHLIGHTED":
+        return "Super Destacado";
+      default:
+        return undefined;
+    }
+  };
+
+  const getHlight = () => {
+    switch ("f") {
+      case "HIGHLIGHTED":
+        return "result-card-highligth result-card-highligthed";
+      case "SUPERHIGHLIGHTED":
+        return "result-card-highligth result-card-super-highligthted";
+      case "SIMPLE":
+        return "";
+      default:
+        return false;
+    }
+  };
+
   return (
     <Card className='result-card-super-highligthted'>
       <CardContent className='item-list'>
+        <div className='container-img-carousel'>
+          <div className='heart-liked'>
+            <FavoriteIcon></FavoriteIcon>
+          </div>
+          <div className='destacado'>
+            <p>super-destacado</p>
+          </div>
+          <img className='gil' src={descarga} alt='' />
+          <div>
+            <h1>$21.000</h1>
+            <p>comisiones</p>
+          </div>
+        </div>
+
         <div className='container-info'>
           <Typography className='title-item'>
             Si vas a utilizar un pasaje de Lorem Ipsum, necesitás esta izar un
@@ -33,26 +74,23 @@ const ResultCard = () => {
             <p>Juan Francisco Seguí 3900, Palermo Chico, Palermo</p>
           </div>
           <Typography className='description'>
-            Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-            archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar
-            de las industrias desde el año 1500, cuando un impresor (N. del T.
-            persona que se dedica a la imprenta)
+            "Sed in felis nec lorem imperdiet euismod. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos
+            himenaeos. Suspendisse lectus mi, imperdiet et venenatis pulvinar,
+            mattis id orci. In ut aliquam orci. Cras vitae risus posuere,
+            ullamcorper erat vitae, tempor libero. Nulla placerat euismod lectus
+            et maximus. Duis non magna mattis, mattis neque eu, dictum dui.
+            Aliquam aliquam fermentum purus quis placerat. Interdum et malesuada
+            fames ac ante ipsum primis in faucibus. Vestibulum sit amet ligula
+            odio. Integer id tempor ipsum. Phasellus maximus quam felis, id
+            vulputate massa ullamcorper id."
           </Typography>
-          <div className='price-info'>
-            <Input placeholder='Ingrese un precio' type='number'></Input>
 
-            <Typography className='sub-price'>$/m23.680</Typography>
-          </div>
           <CardActions className='footer-item'>
-            <div className='amenities-content'>
-              <ul>
-                <li>380 m2</li>
-                <li>3 Dormitorios</li>
-                <li>2 Baños</li>
-                <li>2 Cocheras</li>
-              </ul>
-            </div>
-            <Button size='small'>CONTACTAR</Button>
+            <Button className='button' size='small'>
+              CONTACTAR
+            </Button>
+            <RestoreIcon style={{ padding: "2px 4px 0 0" }} />
           </CardActions>
         </div>
       </CardContent>
