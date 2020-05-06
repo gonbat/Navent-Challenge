@@ -22,8 +22,9 @@
 }
 
 .gil {
-  width: 210px;
+  width: 220px;
   height: 217px;
+  display: flex;
 }
 
 .heart-liked {

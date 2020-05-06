@@ -1,0 +1,20 @@
+.search-options-main-wrapper h2 {
+  margin: 0;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+.search-options-tab-heading-wrapper {
+  display: flex;
+}
+
+.search-options-tab-heading-title-wrapper {
+  width: 100%;
+  padding: 18px 0;
+  line-height: 1.4;
+}
+
+.search-options-tab-heading-expand-wrapper {
+  float: right;
+  padding: 12px;
+}

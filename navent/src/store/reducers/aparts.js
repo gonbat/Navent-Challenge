@@ -13,7 +13,7 @@ const initialState = {
   filters: {
     address: "",
     operation_type: 0,
-    activeSearch: false,
+    searchBool: false,
   },
   favorites: [],
 };

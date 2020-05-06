@@ -22,8 +22,8 @@ const ResultCard = () => {
   // const favorites = useSelector((state) => state.data.favorites);
   const timePass = (publish_date) => {
     let now = moment();
-    let pDay = moment(publish_date, "DD-MM-YYYY");
-    let days = now.diff(pDay, "days");
+    let publi = moment(publish_date, "DD-MM-YYYY");
+    let days = now.diff(publi, "days");
     return `Publicado hace ${days} dias`;
   };
 
