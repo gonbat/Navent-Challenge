@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./ResultCard.css";
 import {
@@ -8,6 +8,7 @@ import {
   Button,
   Typography,
   IconButton,
+  Modal,
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -18,6 +19,16 @@ import { UPDATE_FAVORITES } from "../../store/constants/constants";
 
 var moment = require("moment");
 const ResultCard = (props) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   let result = props.result;
   const dispatch = useDispatch();
   const favorites = useSelector(({ aparts }) => aparts.favorites);
@@ -72,7 +83,7 @@ const ResultCard = (props) => {
       });
     }
     window.sessionStorage.setItem(
-      "favorite_posts",
+      "favorite_aparts",
       JSON.stringify(favoritesCopy),
     );
   };
@@ -93,7 +104,7 @@ const ResultCard = (props) => {
             </IconButton>
           </div>
           <div className='destacado'>
-            <p style={{ color: "white", fontWeight: "20px" }}>{`${getDestacado(
+            <p style={{ color: "white" }}>{`${getDestacado(
               result.publication_plan,
             )}`}</p>
           </div>
@@ -124,7 +135,7 @@ const ResultCard = (props) => {
           <CardActions className='footer-item'>
             <RestoreIcon />
             <h4>{timePass(result.publish_date)}</h4>
-            <Button className='button' size='small'>
+            <Button className='button' size='small' onClick={handleOpen}>
               CONTACTAR
             </Button>
           </CardActions>

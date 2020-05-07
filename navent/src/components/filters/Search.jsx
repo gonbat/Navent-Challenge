@@ -95,6 +95,7 @@ const Search = () => {
                 variant='outlined'
                 onChange={(e) => handleUpFilterState(e, "address")}
                 value={apartsFilters.address}
+                color='default'
               />
               <div style={{ marginLeft: 8 }}>
                 <Button

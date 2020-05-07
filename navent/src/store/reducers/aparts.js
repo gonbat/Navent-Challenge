@@ -3,6 +3,7 @@ import {
   UPDATE_FAVORITES,
   UPDATE_FILTERED_APARTS,
   UPDATE_FILTERS,
+  DATA_GET_PENDING,
 } from "../constants/constants";
 
 const initialState = {
@@ -26,6 +27,14 @@ const aparts = (state = initialState, action) => {
         data: {
           ...state.data,
           aparts: action.payload,
+        },
+      };
+    }
+    case DATA_GET_PENDING: {
+      return {
+        ...state,
+        data: {
+          ...state.data,
         },
       };
     }

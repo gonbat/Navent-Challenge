@@ -3,7 +3,6 @@ import "./App.css";
 import { Grid } from "@material-ui/core";
 import NoResult from "./components/noResult/NoResult";
 import { useDispatch, useSelector } from "react-redux";
-import ResultCard from "./components/resultCard/ResultCard";
 import {
   DATA_GET,
   UPDATE_FAVORITES,
@@ -15,46 +14,43 @@ import List from "./components/list/List";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 function App() {
+  const aparts = useSelector((state) => state.aparts.data.aparts);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch({
       type: DATA_GET,
       payload: Data.getData(),
     });
-
-    let memoryFavorites = JSON.parse(
-      window.sessionStorage.getItem("favorite_posts"),
+    let getFavorites = JSON.parse(
+      window.sessionStorage.getItem("favorite_aparts"),
     );
-    let memorySearchOptions = JSON.parse(
-      window.sessionStorage.getItem("filters"),
-    );
-    let memoryActiveSearch = window.sessionStorage.getItem("search_bool");
+    let getSearchOptions = JSON.parse(window.sessionStorage.getItem("filters"));
+    let getActiveSearch = window.sessionStorage.getItem("search_bool");
 
-    if (memoryFavorites) {
+    if (getFavorites) {
       dispatch({
         type: UPDATE_FAVORITES,
-        payload: memoryFavorites,
+        payload: getFavorites,
       });
     }
-    if (memorySearchOptions) {
+    if (getSearchOptions) {
       dispatch({
         type: UPDATE_FILTERS,
-        payload: memorySearchOptions,
-        activeSearch: memoryActiveSearch,
+        payload: getSearchOptions,
+        searchBool: getActiveSearch,
       });
     }
   }, [dispatch]);
-  const aparts = useSelector((state) => state.aparts.data.aparts);
   return (
     <div className='general-container'>
       <div className='App'>
-        <Grid container spacing={1}>
+        <Grid container spacing={3}>
           <Grid item xs={3}>
             <Search />
           </Grid>
           <Grid item xs={9}>
             <List />
-            {/* {aparts.length > 0 ? <ResultCard /> : <NoResult />} */}
           </Grid>
         </Grid>
       </div>
