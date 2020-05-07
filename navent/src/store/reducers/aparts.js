@@ -37,7 +37,7 @@ const aparts = (state = initialState, action) => {
           ...state.filters,
           address: action.payload.address,
           operation_type: action.payload.operation_type,
-          activeSearch: action.activeSearch,
+          searchBool: action.searchBool,
         },
       };
     }
@@ -47,7 +47,7 @@ const aparts = (state = initialState, action) => {
         ...state,
         data: {
           ...state.data,
-          filteredPosts: action.payload,
+          filteredaparts: action.payload,
         },
       };
     }

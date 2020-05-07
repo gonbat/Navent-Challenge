@@ -85,7 +85,7 @@ input[type="number"] {
 
 .title-item {
   color: #569ce2;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -161,10 +161,10 @@ h4 {
 .container-info .title-item {
   color: #569ce2;
   font-size: 20px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* overflow: "auto"; */
+  /* text-overflow: ellipsis; */
 }
 @media (max-width: 875px) {
   .general-container {

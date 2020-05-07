@@ -16,8 +16,17 @@
   box-sizing: border-box;
 }
 
-.result-card-super-highligthted {
-  border-top: 8px solid #61089d;
+.super-highligthted {
+  border-top: 9px solid #6c0dac;
+  margin-top: 10px;
+}
+
+.highligthed {
+  border-top: 9px solid #239dda;
+  margin-top: 10px;
+}
+
+.no-highligthed {
   margin-top: 10px;
 }
 

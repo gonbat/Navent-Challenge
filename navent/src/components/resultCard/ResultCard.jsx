@@ -16,8 +16,8 @@ import RestoreIcon from "@material-ui/icons/Restore";
 
 import descarga from "../../descarga.jpeg";
 var moment = require("moment");
-const ResultCard = () => {
-  // let result = props.result;
+const ResultCard = (props) => {
+  let result = props.result;
   const dispatch = useDispatch();
   // const favorites = useSelector((state) => state.data.favorites);
   const timePass = (publish_date) => {
@@ -28,31 +28,32 @@ const ResultCard = () => {
   };
 
   const getDestacado = () => {
-    switch ("r") {
+    switch (result.publication_plan) {
       case "HIGHLIGHTED":
         return "Destacado";
       case "SUPERHIGHLIGHTED":
         return "Super Destacado";
+
       default:
-        return undefined;
+        return "";
     }
   };
 
   const getHlight = () => {
-    switch ("f") {
+    switch (result.publication_plan) {
       case "HIGHLIGHTED":
-        return "result-card-highligth result-card-highligthed";
+        return "highligthed";
       case "SUPERHIGHLIGHTED":
-        return "result-card-highligth result-card-super-highligthted";
+        return "super-highligthted";
       case "SIMPLE":
-        return "";
+        return "no-highlighted";
       default:
         return false;
     }
   };
 
   return (
-    <Card className='result-card-super-highligthted'>
+    <Card className={`${getHlight(result.publication_plan)}`}>
       <CardContent className='item-list'>
         <div className='container-img-carousel'>
           <div className='heart-liked'>
@@ -62,39 +63,37 @@ const ResultCard = () => {
             </IconButton>
           </div>
           <div className='destacado'>
-            <p>super-destacado</p>
+            <p style={{ color: "white", fontWeight: "20px" }}>{`${getDestacado(
+              result.publication_plan,
+            )}`}</p>
           </div>
-          <img className='gil' src={descarga} alt='' />
-          <div classname='border'>
-            <h1>$21.000</h1>
-            <p>comisiones</p>
+          <img className='gil' src={result.posting_picture} alt='' />
+          <div className='border'>
+            <h1>{`${
+              result.posting_prices[0].price.currency === "USD" ? "US" : ""
+            }$${result.posting_prices[0].price.amount}`}</h1>
+            {result.posting_prices[0].expenses ? (
+              <p>{`+ ${
+                result.posting_prices[0].expenses.currency === "USD" ? "US" : ""
+              }$${result.posting_prices[0].expenses.amount} Expensas`}</p>
+            ) : (
+              <p>{"Sin expensas"}</p>
+            )}
           </div>
         </div>
 
         <div className='container-info'>
-          <Typography className='title-item'>
-            Si vas a utilizar un pasaje de Lorem Ipsum, necesitás esta izar un
-            pasaje de Lorem Ipsum, necesitás esta
-          </Typography>
+          <Typography className='title-item'>{result.title}</Typography>
           <div className='ubication-title'>
-            <p>Juan Francisco Seguí 3900, Palermo Chico, Palermo</p>
+            <p>{`${result.posting_location.zone} - ${result.posting_location.city}`}</p>
           </div>
           <Typography className='description'>
-            "Sed in felis nec lorem imperdiet euismod. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos. Suspendisse lectus mi, imperdiet et venenatis pulvinar,
-            mattis id orci. In ut aliquam orci. Cras vitae risus posuere,
-            ullamcorper erat vitae, tempor libero. Nulla placerat euismod lectus
-            et maximus. Duis non magna mattis, mattis neque eu, dictum dui.
-            Aliquam aliquam fermentum purus quis placerat. Interdum et malesuada
-            fames ac ante ipsum primis in faucibus. Vestibulum sit amet ligula
-            odio. Integer id tempor ipsum. Phasellus maximus quam felis, id
-            vulputate massa ullamcorper id."
+            {result.posting_description}
           </Typography>
 
           <CardActions className='footer-item'>
             <RestoreIcon />
-            <h4>Publicado hace 12 dias</h4>
+            <h4>{timePass(result.publish_date)}</h4>
             <Button className='button' size='small'>
               CONTACTAR
             </Button>
