@@ -14,12 +14,13 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import RestoreIcon from "@material-ui/icons/Restore";
 
-import descarga from "../../descarga.jpeg";
+import { UPDATE_FAVORITES } from "../../store/constants/constants";
+
 var moment = require("moment");
 const ResultCard = (props) => {
   let result = props.result;
   const dispatch = useDispatch();
-  // const favorites = useSelector((state) => state.data.favorites);
+  const favorites = useSelector(({ aparts }) => aparts.favorites);
   const timePass = (publish_date) => {
     let now = moment();
     let publi = moment(publish_date, "DD-MM-YYYY");
@@ -52,14 +53,43 @@ const ResultCard = (props) => {
     }
   };
 
+  const isFavorite = (id) => {
+    return favorites.indexOf(id) !== -1;
+  };
+  const setFavoriteStatus = (id) => {
+    let favoritesCopy = Array.from(favorites);
+    if (!isFavorite(id)) {
+      favoritesCopy.push(id);
+      dispatch({
+        type: UPDATE_FAVORITES,
+        payload: favoritesCopy,
+      });
+    } else {
+      favoritesCopy.splice(favoritesCopy.indexOf(id), 1);
+      dispatch({
+        type: UPDATE_FAVORITES,
+        payload: favoritesCopy,
+      });
+    }
+    window.sessionStorage.setItem(
+      "favorite_posts",
+      JSON.stringify(favoritesCopy),
+    );
+  };
   return (
     <Card className={`${getHlight(result.publication_plan)}`}>
       <CardContent className='item-list'>
         <div className='container-img-carousel'>
           <div className='heart-liked'>
-            <IconButton style={{ backgroundColor: "#ccc" }}>
-              {/* <FavoriteIcon style={{ fill: "red" }} /> */}
-              <FavoriteBorderIcon style={{ fill: "black" }} />
+            <IconButton
+              style={{ backgroundColor: "#ccc" }}
+              onClick={() => setFavoriteStatus(result.posting_id)}
+            >
+              {isFavorite(result.posting_id) ? (
+                <FavoriteIcon style={{ fill: "red" }} />
+              ) : (
+                <FavoriteBorderIcon style={{ fill: "black" }} />
+              )}
             </IconButton>
           </div>
           <div className='destacado'>

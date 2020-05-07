@@ -18,3 +18,18 @@
   float: right;
   padding: 12px;
 }
+
+.border-line h2 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+.border-lines {
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+.border-linesz {
+  border-top: 1px solid gray;
+  padding-top: 2px;
+}

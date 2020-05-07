@@ -69,63 +69,62 @@ const Search = () => {
     }
   }, []);
   return (
-    <MuiThemeProvider theme={theme}>
-      <div className='search-options-main-wrapper'>
-        <div>
-          <h2>Filtrado actual</h2>
+    <div className='search-options-main-wrapper'>
+      <div className='border-line'>
+        <h2>Filtrado actual</h2>
+      </div>
+      <Fragment>
+        <div className='search-options-tab-heading-wrapper'>
+          <div className='search-options-tab-heading-title-wrapper'>
+            <h2> {"Dirección"}</h2>
+          </div>
+          <div className='search-options-tab-heading-expand-wrapper '>
+            <IconButton onClick={() => updateFiltersState("address")}>
+              <ExpandMoreIcon
+                style={{ transform: display.address && "rotate(180deg" }}
+              />
+            </IconButton>
+          </div>
         </div>
-        <Fragment>
+        <div>
+          <Collapse in={display.address}>
+            <div style={{ display: "flex" }}>
+              <TextField
+                placeholder='Buscar por direccion'
+                id='address-input'
+                variant='outlined'
+                onChange={(e) => handleUpFilterState(e, "address")}
+                value={apartsFilters.address}
+              />
+              <div style={{ marginLeft: 8 }}>
+                <Button
+                  variant='outlined'
+                  style={{ color: "rgb(0, 255, 255)" }}
+                >
+                  <SearchIcon style={{ fontSize: 40, paddingTop: 4 }} />
+                </Button>
+              </div>
+            </div>
+          </Collapse>
+        </div>
+      </Fragment>
+      <Fragment>
+        <div>
           <div className='search-options-tab-heading-wrapper'>
             <div className='search-options-tab-heading-title-wrapper'>
-              <h2> {"Dirección"}</h2>
+              <h2>{"Tipo de operación"}</h2>
             </div>
             <div className='search-options-tab-heading-expand-wrapper'>
-              <IconButton onClick={() => updateFiltersState("address")}>
+              <IconButton onClick={() => updateFiltersState("opType")}>
                 <ExpandMoreIcon
-                  style={{ transform: display.address && "rotate(180deg" }}
+                  style={{ transform: display.opType && "rotate(180deg" }}
                 />
               </IconButton>
             </div>
           </div>
-          <div>
-            <Collapse in={display.address}>
-              <div style={{ display: "flex" }}>
-                <TextField
-                  placeholder='Buscar por direccion'
-                  id='address-input'
-                  variant='outlined'
-                  onChange={(e) => handleUpFilterState(e, "address")}
-                  value={apartsFilters.address}
-                />
-                <div style={{ marginLeft: 8 }}>
-                  <Button
-                    variant='outlined'
-                    style={{ color: "rgb(0, 255, 255)" }}
-                  >
-                    <SearchIcon style={{ fontSize: 40, paddingTop: 4 }} />
-                  </Button>
-                </div>
-              </div>
-            </Collapse>
-          </div>
-        </Fragment>
-        <Fragment>
-          <div>
-            <div className='search-options-tab-heading-wrapper'>
-              <div className='search-options-tab-heading-title-wrapper'>
-                <h2>{"Tipo de operación"}</h2>
-              </div>
-              <div className='search-options-tab-heading-expand-wrapper'>
-                <IconButton onClick={() => updateFiltersState("opType")}>
-                  <ExpandMoreIcon
-                    style={{ transform: display.opType && "rotate(180deg" }}
-                  />
-                </IconButton>
-              </div>
-            </div>
-
-            <Collapse in={display.opType}>
-              <div>
+          <Collapse in={display.opType}>
+            <div>
+              <MuiThemeProvider theme={theme}>
                 <FormControl component='fieldset'>
                   <RadioGroup
                     onChange={(e) => handleUpFilterState(e, "operation_type")}
@@ -153,12 +152,12 @@ const Search = () => {
                     />
                   </RadioGroup>
                 </FormControl>
-              </div>
-            </Collapse>
-          </div>
-        </Fragment>
-      </div>
-    </MuiThemeProvider>
+              </MuiThemeProvider>
+            </div>
+          </Collapse>
+        </div>
+      </Fragment>
+    </div>
   );
 };
 export default Search;
