@@ -1,23 +1,14 @@
 import axios from "axios";
 const Data = {
   getData() {
-    return fetch("navent.json").then((res) => {
+    return axios.get("navent.json").then((res) => {
       try {
-        return res.json();
+        return res.data;
       } catch (e) {
         return e;
       }
     });
   },
 };
-// return axios.get("navent.json").then((res) => {
-//   try {
-//     return res.data;
-//   } catch (e) {
-//     return e;
-//   }
-// });
-// },
-// };
 
 export default Data;

@@ -16,12 +16,12 @@ const List = () => {
     let copyAparts = aparts.slice(0);
     let selectAparts = (filters, aparts) => {
       let { address, operation_type } = filters;
-      let copyOpType = aparts.operation_type.operation_type_id;
       let copyAddress = `${aparts.title} ${aparts.posting_location.address}  ${aparts.posting_location.zone} ${aparts.posting_location.city}`.toLowerCase();
       address = address.toLowerCase();
       return (
         address.includes(copyAddress) &&
-        (copyOpType === operation_type || operation_type === 0)
+        (aparts.operation_type.operation_type_id === operation_type ||
+          operation_type === 0)
       );
     };
     let filtered = copyAparts.filter((gon) => {

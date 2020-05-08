@@ -64,39 +64,36 @@ const ResultCard = (props) => {
     }
   };
 
-  const isFavorite = (id) => {
-    return favorites.indexOf(id) !== -1;
+  const isFav = (index) => {
+    return favorites.indexOf(index) !== -1;
   };
-  const setFavoriteStatus = (id) => {
-    let favoritesCopy = Array.from(favorites);
-    if (!isFavorite(id)) {
-      favoritesCopy.push(id);
+  const setFavoriteStatus = (index) => {
+    let favsCopy = favorites.slice(0);
+    if (!isFav(index)) {
+      favsCopy.unshift(index);
       dispatch({
         type: UPDATE_FAVORITES,
-        payload: favoritesCopy,
+        payload: favsCopy,
       });
     } else {
-      favoritesCopy.splice(favoritesCopy.indexOf(id), 1);
+      favsCopy.splice(favsCopy.indexOf(index), 1);
       dispatch({
         type: UPDATE_FAVORITES,
-        payload: favoritesCopy,
+        payload: favsCopy,
       });
     }
-    window.sessionStorage.setItem(
-      "favorite_aparts",
-      JSON.stringify(favoritesCopy),
-    );
+    window.sessionStorage.setItem("favorite_aparts", JSON.stringify(favsCopy));
   };
   return (
     <Card className={`${getHlight(result.publication_plan)}`}>
       <CardContent className='item-list'>
         <div className='container-img-carousel'>
-          <div className='heart-liked'>
+          <div className='heart'>
             <IconButton
               style={{ backgroundColor: "#ccc" }}
               onClick={() => setFavoriteStatus(result.posting_id)}
             >
-              {isFavorite(result.posting_id) ? (
+              {isFav(result.posting_id) ? (
                 <FavoriteIcon style={{ fill: "red" }} />
               ) : (
                 <FavoriteBorderIcon style={{ fill: "black" }} />
@@ -108,7 +105,7 @@ const ResultCard = (props) => {
               result.publication_plan,
             )}`}</p>
           </div>
-          <img className='gil' src={result.posting_picture} alt='' />
+          <img className='image' src={result.posting_picture} alt='' />
           <div className='border'>
             <h1>{`${
               result.posting_prices[0].price.currency === "USD" ? "US" : ""
@@ -135,7 +132,7 @@ const ResultCard = (props) => {
           <CardActions className='footer-item'>
             <RestoreIcon />
             <h4>{timePass(result.publish_date)}</h4>
-            <Button className='button' size='small' onClick={handleOpen}>
+            <Button className='button' size='small'>
               CONTACTAR
             </Button>
           </CardActions>
